@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jogo da cobrinha</title>
+
+    <style type="text/css">
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #menu {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+        }
+
+        #container {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        #logo {
+            width: 100%;
+            height: 60%;
+            background-image: url(./snake-01.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+        }
+
+        #buttons-menu {
+            width: 100%;
+            height: 40%;
+            background-color: #8ead2d !important;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        #start {
+            width: 40%;
+            height: 30%;
+            color: black;
+            font-size: 28px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #75970f;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        #start:active {
+            border: none !important;
+        }
+
+        #instructions {
+            width: 40%;
+            height: 30%;
+            color: black;
+            font-size: 28px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #75970f;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        #gameover {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 10;
+        }
+
+        #gameover-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #gameover-text h3 {
+            font-size: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 0;
+            text-align: center;
+            margin: 0 0 40px 0;
+        }
+
+        #final-points {
+            font-size: 32px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #pontuation {
+            font-size: 32px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0 10px 0 0;
+            padding: 0;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: block;
+            color: white;
+            z-index: 100;
+        }
+
+        #restart {
+            width: 40%;
+            height: 30%;
+            color: black;
+            font-size: 28px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #75970f;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        #return-menu {
+            width: 40%;
+            height: 30%;
+            color: black;
+            font-size: 28px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #75970f;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h3 id="pontuation"></h3>
+
+    </div>
+
+
+    <div id="menu" width="600" height="600">
+
+        <div id="logo">
+            <img src="">
+        </div>
+
+        <div id="buttons-menu">
+
+            <button id="start" onclick="start()">Start</button>
+
+            <button id="instructions">Instructions</button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="gameover" width="600" height="600">
+
+        <div id="gameover-text">
+
+            <h3>Game Over</h3>
+            <!--ou colocar uma imagem de game over-->
+
+            <h6 id="final-points"></h6>
+
+            <button id="restart" onclick="start()">Restart</button>
+
+            <button id="return-menu">Menu</button>
+
+        </div>
+
+    </div>
+
+
+
+    <canvas id="stage" width="600" height="600">
+    </canvas>
+
+
+
+
+    <script type="text/javascript">
+
+
+        function start() {//COLOCAR UM JEITO PRA INICIAR(TALVEZ ONCLICK NO BUTTON)
+
+            var stage = document.getElementById('stage');
+            var ctx = stage.getContext("2d");
+            document.addEventListener("keydown", keyPush);
+            setInterval(game, 80);
+
+            const vel = 1; //velocidade (Quantas casas a cobra vai andar a cada vez que o jogo for atualizado - 80ms)
+
+            var vx = vy = 0; //velocidade inicial
+            var px = 10; //ponto de início
+            var py = 15; //ponto de início
+            var tp = 30; //tamanho da peça, ou seja, cada peça tem 600 / 30 (20) de tamanho 
+            var qp = 20; //quantidade de peças
+            var ax = ay = 15; //posição inicial da maçã
+
+            var trail = []; //começa com um array vazio - sem nenhum elementro no rastro
+            tail = 5;
+
+            var pontuation = 0
+            document.getElementById('pontuation').style.display = 'block'
+            document.getElementById("pontuation").innerHTML = '0'
+
+            document.getElementById('menu').style.display = 'none'
+
+            function game() {
+
+                px += vx;
+                py += vy;
+                if (px < 0) {
+                    gameover()
+                }
+                if (px > qp - 1) {
+                    gameover()
+                }
+                if (py < 0) {
+                    gameover()
+                }
+                if (py > qp - 1) {
+                    gameover()
+                }
+
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, stage.width, stage.height);
+
+                ctx.fillStyle = "red";
+                ctx.fillRect(ax * tp, ay * tp, tp, tp); //pinta o tamanho da peça de vermelho na posição inicial da maça
+
+                ctx.fillStyle = "gray";
+                for (var i = 0; i < trail.length; i++) {
+
+                    ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1); //pinta o rastro da cobra
+
+                    if (trail[i].x == px && trail[i].y == py && vx != 0) {
+                        gameover()
+                    }
+                }
+
+                trail.push({ x: px, y: py })
+                while (trail.length > tail) {
+                    trail.shift();
+                }
+
+                if (ax == px && ay == py) {
+                    tail++;
+                    ax = Math.floor(Math.random() * qp);
+                    ay = Math.floor(Math.random() * qp);
+
+                    pontuation += 10
+                    finalPontuation = pontuation
+                    document.getElementById("pontuation").innerHTML = finalPontuation
+                }
+
+                finalPontuation = pontuation
+
+                function gameover() {
+                    vx = vy = 0;
+                    tail = 5;
+                    document.getElementById('gameover').style.display = 'flex';
+                    document.getElementById("final-points").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+                }
+
+            }
+
+
+
+            function keyPush(event) {
+
+                switch (event.keyCode) {
+                    case 37: // Left
+                        vx = -vel;
+                        vy = 0;
+                        break;
+                    case 38: // up
+                        vx = 0;
+                        vy = -vel;
+                        break;
+                    case 39: // right
+                        vx = vel;
+                        vy = 0;
+                        break;
+                    case 40: // down
+                        vx = 0;
+                        vy = vel;
+                        break;
+                    default:
+
+                        break;
+                }
+
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
+
+<!--OOKKK -> PÁGINA INICIAL COM: BOTAO PARA COMEÇAR O JOGO, INSTRUÇÕES, IMAGEM DE FUNDO LEGAL, TÍTULO SNAKE-->
+<!--OOKKK -> Melhorar a página inicial e centralizar o jogo na tela-->
+<!--OOKKK -> Quando ele perde para a cobra(vx = vy = 0) e aparece a tela de game over com quantos pontos fez-->
+<!--QUANDO PERDE IMPEDIR QUE O USUARIO CONTINUE CLICANDO E A COBRA ANDE-->
+<!--Tela de ganhou quando a cobra preencher toda a tela-->
+<!--Tela de instruções-->
