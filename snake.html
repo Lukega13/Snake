@@ -103,6 +103,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
+            width: 100%;
         }
 
         #gameover-text h3 {
@@ -113,10 +114,11 @@
             margin: 0 0 40px 0;
         }
 
-        #final-points {
+        #final-points-lose,
+        #final-points-win {
             font-size: 32px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
+            margin: 0 0 30px 0;
             padding: 0;
             text-align: center;
         }
@@ -137,7 +139,7 @@
 
         #restart {
             width: 40%;
-            height: 30%;
+            height: 80px;
             color: black;
             font-size: 28px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -145,12 +147,12 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            margin: 0;
+            margin: 0 0 20px 0;
         }
 
         #return-menu {
             width: 40%;
-            height: 30%;
+            height: 80px;
             color: black;
             font-size: 28px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -158,7 +160,35 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            margin: 0;
+            margin: 0 0 20px 0;
+        }
+
+        #win {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 10;
+        }
+
+        #win-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+
+        #win-text h3 {
+            font-size: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 0;
+            text-align: center;
+            margin: 0 0 40px 0;
         }
     </style>
 
@@ -192,18 +222,35 @@
 
 
 
-    <div id="gameover" width="600" height="600">
+    <div id="gameover">
 
         <div id="gameover-text">
 
             <h3>Game Over</h3>
             <!--ou colocar uma imagem de game over-->
 
-            <h6 id="final-points"></h6>
+            <h6 id="final-points-lose">You've made x points</h6>
 
-            <button id="restart" onclick="start()">Restart</button>
+            <button id="restart" onclick="reset()">Restart</button>
 
-            <button id="return-menu">Menu</button>
+            <button id="return-menu" onclick="menu()">Menu</button>
+
+        </div>
+
+    </div>
+
+    <div id="win">
+
+        <div id="win-text">
+
+            <h3>You Win!</h3>
+            <!--ou colocar uma imagem de game over-->
+
+            <h6 id="final-points-win"></h6>
+
+            <button id="restart" onclick="reset()">Restart</button>
+
+            <button id="return-menu" onclick="menu()">Menu</button>
 
         </div>
 
@@ -219,13 +266,29 @@
 
     <script type="text/javascript">
 
+        function reset() {
+            document.getElementById('gameover').style.display = 'none';
 
-        function start() {//COLOCAR UM JEITO PRA INICIAR(TALVEZ ONCLICK NO BUTTON)
+            start()
+        }
+
+        function menu() {
+            window.location.reload()
+        }
+
+
+
+
+
+
+
+        function start() {
 
             var stage = document.getElementById('stage');
             var ctx = stage.getContext("2d");
             document.addEventListener("keydown", keyPush);
-            setInterval(game, 80);
+
+            var intervalo = setInterval(game, 80);
 
             const vel = 1; //velocidade (Quantas casas a cobra vai andar a cada vez que o jogo for atualizado - 80ms)
 
@@ -237,13 +300,14 @@
             var ax = ay = 15; //posição inicial da maçã
 
             var trail = []; //começa com um array vazio - sem nenhum elementro no rastro
-            tail = 5;
+            tail = 1;
 
             var pontuation = 0
             document.getElementById('pontuation').style.display = 'block'
             document.getElementById("pontuation").innerHTML = '0'
 
             document.getElementById('menu').style.display = 'none'
+
 
             function game() {
 
@@ -271,10 +335,23 @@
                 ctx.fillStyle = "gray";
                 for (var i = 0; i < trail.length; i++) {
 
-                    ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1); //pinta o rastro da cobra
+                    if (i == 0) {
+                        ctx.fillStyle = "#8ead2d";
+                        ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1);
+                    } else {
+                        ctx.fillStyle = "#8ead2d";
+                        ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1);
+
+                        ctx.fillStyle = "#364713";
+                        ctx.fillRect(trail[i - 1].x * tp, trail[i - 1].y * tp, tp - 1, tp - 1); //pinta o rastro da cobra
+                    }
 
                     if (trail[i].x == px && trail[i].y == py && vx != 0) {
                         gameover()
+                    }
+
+                    if (i == 400) {
+                        win()
                     }
                 }
 
@@ -296,17 +373,26 @@
                 finalPontuation = pontuation
 
                 function gameover() {
-                    vx = vy = 0;
-                    tail = 5;
                     document.getElementById('gameover').style.display = 'flex';
-                    document.getElementById("final-points").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+                    document.getElementById("final-points-lose").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+
+                    clearInterval(intervalo)
                 }
+
+                function win() {
+                    document.getElementById('win').style.display = 'flex';
+                    document.getElementById("final-points-win").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+
+                    clearInterval(intervalo)
+                }
+
 
             }
 
 
 
             function keyPush(event) {
+
 
                 switch (event.keyCode) {
                     case 37: // Left
@@ -335,14 +421,11 @@
 
         }
 
+
+
     </script>
 </body>
 
 </html>
 
-<!--OOKKK -> PÁGINA INICIAL COM: BOTAO PARA COMEÇAR O JOGO, INSTRUÇÕES, IMAGEM DE FUNDO LEGAL, TÍTULO SNAKE-->
-<!--OOKKK -> Melhorar a página inicial e centralizar o jogo na tela-->
-<!--OOKKK -> Quando ele perde para a cobra(vx = vy = 0) e aparece a tela de game over com quantos pontos fez-->
-<!--QUANDO PERDE IMPEDIR QUE O USUARIO CONTINUE CLICANDO E A COBRA ANDE-->
-<!--Tela de ganhou quando a cobra preencher toda a tela-->
 <!--Tela de instruções-->
