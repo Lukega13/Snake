@@ -313,6 +313,7 @@
 
                 px += vx;
                 py += vy;
+
                 if (px < 0) {
                     gameover()
                 }
@@ -346,7 +347,7 @@
                         ctx.fillRect(trail[i - 1].x * tp, trail[i - 1].y * tp, tp - 1, tp - 1); //pinta o rastro da cobra
                     }
 
-                    if (trail[i].x == px && trail[i].y == py && vx != 0) {
+                    if (trail[i].x == px && trail[i].y == py && tail != 1) {
                         gameover()
                     }
 
@@ -385,7 +386,6 @@
 
                     clearInterval(intervalo)
                 }
-
 
             }
 
