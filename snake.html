@@ -5,6 +5,12 @@
     <title>Jogo da cobrinha</title>
 
     <style type="text/css">
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
         body,
         html {
             padding: 0;
@@ -14,6 +20,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 16px;
         }
 
         #menu {
@@ -46,7 +53,7 @@
 
         #buttons-menu {
             width: 100%;
-            height: 40%;
+            height: 36%;
             background-color: #8ead2d !important;
             display: flex;
             justify-content: space-evenly;
@@ -66,10 +73,12 @@
             cursor: pointer;
             padding: 0;
             margin: 0;
+            outline: none;
         }
 
-        #start:active {
-            border: none !important;
+        #start:active,
+        #start:focus {
+            outline: none;
         }
 
         #instructions {
@@ -83,6 +92,37 @@
             cursor: pointer;
             padding: 0;
             margin: 0;
+        }
+
+        #instructions:active,
+        #instructions:focus {
+            outline: none;
+        }
+
+        #footer-menu {
+            width: 100%;
+            height: 4%;
+            background-color: #90b521;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #footer-menu h1 {
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: none;
+            color: black;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        #footer-menu h1 a {
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
         }
 
 
@@ -150,6 +190,11 @@
             margin: 0 0 20px 0;
         }
 
+        #restart:active,
+        #restart:focus {
+            outline: none;
+        }
+
         #return-menu {
             width: 40%;
             height: 80px;
@@ -161,6 +206,11 @@
             cursor: pointer;
             padding: 0;
             margin: 0 0 20px 0;
+        }
+
+        #return-menu:active,
+        #return-menu:focus {
+            outline: none;
         }
 
         #win {
@@ -190,6 +240,70 @@
             text-align: center;
             margin: 0 0 40px 0;
         }
+
+        #instructions-board {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background-color: #8ead2d;
+            z-index: 10;
+        }
+
+        #instructions-header {
+            width: 100%;
+            height: fit-content;
+            text-align: center;
+        }
+
+        #instructions-header h1 {
+            color: #bfef27;
+            font-size: 22px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        #instructions-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #instructions-text h1 {
+            color: #445511;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #instructions-back-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #instructions-back-button button {
+            width: 40%;
+            height: 70px;
+            color: black;
+            font-size: 28px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #75970f;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        #instructions-back-button button:active,
+        #instructions-back-button button:focus {
+            outline: none;
+        }
     </style>
 
 </head>
@@ -206,20 +320,48 @@
     <div id="menu" width="600" height="600">
 
         <div id="logo">
-            <img src="">
         </div>
 
         <div id="buttons-menu">
 
             <button id="start" onclick="start()">Start</button>
 
-            <button id="instructions">Instructions</button>
+            <button id="instructions" onclick="showInstructions()">Instructions</button>
 
         </div>
 
+        <div id="footer-menu">
+            <h1>Developed by <a href="https://github.com/Lukega13">Lukega13</a></h1>
+        </div>
 
     </div>
 
+
+    <div id="instructions-board">
+
+        <div id="instructions-header">
+            <h1>Intructions of the Game</h1>
+        </div>
+
+        <div id="instructions-text">
+            <h1>The snake is controlled by the arrow keys</h1>
+            <h1>The snake moves at a constant speed</h1>
+            <h1>The snake moves only north, south, east, or west</h1>
+            <h1>The snake starts at the center of the board, moving north</h1>
+            <h1>"Apples" appear at random locations</h1>
+            <h1>There is always exactly one apple visible</h1>
+            <h1>When the snake eats an apple, it gets (1 square) longer</h1>
+            <h1>The snake dies if it runs to the edge of the board</h1>
+            <h1>The snake also dies if it runs into its own tail</h1>
+            <h1>If the snake dies the game is ended</h1>
+            <h1>For each apple eated you win 10 points</h1>
+            <h1>If the snake fills the entire window you win!</h1>
+        </div>
+
+        <div id="instructions-back-button">
+            <button onclick="exitInstructions()">Back to Menu</button>
+        </div>
+    </div>
 
 
     <div id="gameover">
@@ -276,33 +418,38 @@
             window.location.reload()
         }
 
+        function showInstructions() {
+            document.getElementById('instructions-board').style.display = 'flex'
+        }
 
-
-
+        function exitInstructions() {
+            document.getElementById('instructions-board').style.display = 'none'
+        }
 
 
 
         function start() {
 
-            var stage = document.getElementById('stage');
-            var ctx = stage.getContext("2d");
+            let stage = document.getElementById('stage');
+            let ctx = stage.getContext("2d");
             document.addEventListener("keydown", keyPush);
 
-            var intervalo = setInterval(game, 80);
+            let intervalo = setInterval(game, 90);
 
             const vel = 1; //velocidade (Quantas casas a cobra vai andar a cada vez que o jogo for atualizado - 80ms)
 
-            var vx = vy = 0; //velocidade inicial
-            var px = 10; //ponto de início
-            var py = 15; //ponto de início
-            var tp = 30; //tamanho da peça, ou seja, cada peça tem 600 / 30 (20) de tamanho 
-            var qp = 20; //quantidade de peças
-            var ax = ay = 15; //posição inicial da maçã
+            let vx = 0; //velocidade x inicial
+            let vy = -vel; //velocidade y inicial
+            let px = 10; //ponto de início
+            let py = 10; //ponto de início
+            let tp = 30; //tamanho da peça, ou seja, cada peça tem 600 / 30 (20) de tamanho 
+            let qp = 20; //quantidade de peças
+            let ax = ay = 15; //posição inicial da maçã
 
-            var trail = []; //começa com um array vazio - sem nenhum elementro no rastro
+            let trail = []; //começa com um array vazio - sem nenhum elementro no rastro
             tail = 1;
 
-            var pontuation = 0
+            let pontuation = 0
             document.getElementById('pontuation').style.display = 'block'
             document.getElementById("pontuation").innerHTML = '0'
 
@@ -334,7 +481,7 @@
                 ctx.fillRect(ax * tp, ay * tp, tp, tp); //pinta o tamanho da peça de vermelho na posição inicial da maça
 
                 ctx.fillStyle = "gray";
-                for (var i = 0; i < trail.length; i++) {
+                for (let i = 0; i < trail.length; i++) {
 
                     if (i == 0) {
                         ctx.fillStyle = "#8ead2d";
