@@ -1,10 +1,14 @@
 <img src="./snake-banner.jpg">
 
-<p align="center">🐍 The old snake game, but in JavaScript!</p>
+<h2 align="center">🐍 The old snake game, but in JavaScript!</h2>
 
 <p align="center">
 <a hred="">
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
+</a>
+
+<a hred="">
+<img alt="Version v1.0" src="https://img.shields.io/static/v1?label=status&message=ready&color=rgb(107,200,105)&style=flat&logo=none">
 </a>
 
 <a href="www.linkedin.com/in/luke-guimaraes">
@@ -16,9 +20,10 @@
 </a>
 </p>
 
+> Obs: The code is well commented so I strongly recommend reading it!
 
-## Overview
-OBS: The code is well commented so I strongly recommend reading it!
+## Features
+
 
 ## How it works
 To build this software I divided the project in 6 steps:
