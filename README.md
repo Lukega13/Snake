@@ -1,8 +1,11 @@
-# Snake
 <img src="./snake-01.jpg">
+
+## Overview
 The old snake game, but in JavaScript!
 
 OBS: The code is well commented so I strongly recommend reading it!
+
+<a href="https://github.com/tgmarinho/nlw1/commits/master">
 
 ## How it works
 To build this software I divided the project in 6 steps:
