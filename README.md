@@ -1,11 +1,14 @@
 # Snake
 The old snake game, but in JavaScript!
 
+
 ## How it works
 To build this software I divided the project in 6 steps:
+
 OBS: The code is well comented so I strongly recomend reading it!
 
 - Building the Stage
+
 The stage was built using the HTMLCanvasElement.getContext('2d') method. This leads to the creation of a CanvasRenderingContext2D object representing a two-dimensional rendering, that will be our stage.
 
 It is composed by 25 * 25 squares, represented by px and py, respectively.
@@ -19,18 +22,41 @@ This tp variable has great importance for the game operation, because it works l
 -> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
 
 
-- Building the Snake and How it Moves
-- Build the Apples
-- Start Positions
+-------------> Building the Snake and How it Moves <-----------------------
+
+- Building the Apples
+
+Apples are randomically generated and placed in a position where the snake's body IS NOT occupying
+
+There is always exactly one apple visible, to generate the next apple, the current one must be eaten 
+
+The first apple is always placed at position 15,15 (ax = ay = 15)
+
+When player "eats" an apple another one is randomically generated again
+
+-------------> Start Positions <------------------
+
 - End Game Conditions
-- Pontuation
+
+The game can be ended in 3 ways:
+
+1- User loses by running into one of the four edges of the board
+
+2- User loses by running into its own tail
+
+3- User wins if the snake occupies the entire screen
+
+- Score
+
+Score starts at 0 and each "eaten apple" (snake passes through) gives 10 points for the player
+
+It's verified by the condition 'if (ax == px && ay == py)', that means: if the positions px,py of the snake (head)
+are iqual to the position ax,ay of the apple (apple's position), then player recieves 10 points and another apple is created in a randomically position that snake is not occupying 
+
+The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
 
 
 
-
-
-
-  Esse tp é importante porque ele, juntamente do ax/ay e do loop "for" com os elementos do array Trail, vão determinar cada coordenada do canvas em que as maçãs aparecerão e a cobra aparecerá, respectivamente 
  
 
 - A cobra começa no meio do tabuleiro (posição px e py = 12), com velocidade de 90milissegundos por quadrado (setInterval(game,90))
@@ -40,13 +66,6 @@ e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado 
 da variavel let tail = 1
 
 ->>>> Como a cobra anda? (A função document.addEventListener("keydown", keyPush) possui um Switch para cada tecla que atribuem uma vel(direção) à cobra alterando a posição px e py da cobra pelas variaveis vx, e o loop....)
-
-- Maças: geradas randomicamente e sao colocadas em uma posição em que o corpo da cobra NÃO ESTEJA
-         a primeira maça é sempre colocada na posição 15 (ax e ay = 15)
-- Pontuation: cada maça 'comida' (que a cobra passa por cima) o jogador ganha 10 pontos
-              a pontuação começa em 0 (let pontuation)
-- Fim de jogo: O jogador perde caso... Isso é verificado dessa forma...
-               O jogador ganha caso... Isso é verificado dessa forma....
 
 
 ## Download

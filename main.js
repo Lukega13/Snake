@@ -17,10 +17,10 @@ function start() {// the function called when player clicks on the start button 
     let trail = []; // the Array the represents the Snake's Trail - Starts empty, with no trail 
     tail = 1; // as the snake eats the apples the Trail is added by 1 tail, adding 1 piece for the snake's trail
 
-    // shows the pontuation of the game, starting in 0
-    let pontuation = 0
-    document.getElementById('pontuation').style.display = 'block'
-    document.getElementById("pontuation").innerHTML = '0'
+    // shows the score of the game, starting in 0
+    let score = 0
+    document.getElementById('score').style.display = 'block'
+    document.getElementById("score").innerHTML = '0'
 
     // removes the menu screen to the start of the game
     document.getElementById('menu').style.display = 'none'
@@ -134,26 +134,28 @@ function start() {// the function called when player clicks on the start button 
                 randomApple()
             }
 
-            // Finally the pontuation is increased by 10 and is displayed at the game screen in real time
-            pontuation += 10
-            let finalPontuation = pontuation
-            document.getElementById("pontuation").innerHTML = finalPontuation
+            // Finally the score is increased by 10 and is displayed at the game screen in real time
+            score += 10
+            let finalScore = score
+            document.getElementById("score").innerHTML = finalScore
         }
 
         function gameover() {
-            let finalPontuation = pontuation
+            let finalScore = score
             document.getElementById('gameover').style.display = 'flex';
-            document.getElementById("final-points-lose").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+            document.getElementById("final-points-lose").innerHTML = 'You\'ve made ' + finalScore + ' points!'
 
             interval(false)
+            gameisover = true
         }
 
         function win() {
-            let finalPontuation = pontuation
+            let finalScore = score
             document.getElementById('win').style.display = 'flex';
-            document.getElementById("final-points-win").innerHTML = 'You\'ve made ' + finalPontuation + ' points!'
+            document.getElementById("final-points-win").innerHTML = 'You\'ve made ' + finalScore + ' points!'
 
             interval(false)
+            gameisover = true
         }
 
     }
@@ -193,16 +195,24 @@ function start() {// the function called when player clicks on the start button 
     }
 
     let show = true
+    let gameisover = false
 
     function pause() {
 
-        if (show == true) {
-            interval(false)
-        } else {
-            interval(true)
-        }
+        if (gameisover == false) {
+            if (show == true) {
+                interval(false)
+                document.getElementById('pause-screen').style.display = 'flex'
 
-        show = !show
+            } else {
+
+                interval(true)
+                document.getElementById('pause-screen').style.display = 'none'
+
+            }
+
+            show = !show
+        }
     }
 }
 

@@ -126,7 +126,7 @@ body {
 }
 
 
-#pontuation {
+#score {
     font-size: 32px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0 10px 0 0;
@@ -309,4 +309,30 @@ body {
 #instructions-back-button button:active,
 #instructions-back-button button:focus {
     outline: none;
+}
+
+#pause-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+}
+#pause-screen h3 {
+    color: black;
+    font-size: 26px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 50px 0;
+}
+#pause-screen h6 {
+    color: black;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 300;
 }
