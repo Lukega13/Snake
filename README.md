@@ -3,11 +3,11 @@
 <h2 align="center">🐍 The old snake game, but in JavaScript!</h2>
 
 <p align="center">
-<a hred="">
+<a hred="https://github.com/Lukega13/Snake">
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(31,54,125)&style=flat&logo=none">
 </a>
 
-<a href="">
+<a href="https://github.com/Lukega13/Snake">
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=status&message=ready&color=rgb(107,200,105)&style=flat&logo=none">
 </a>
 
@@ -37,11 +37,10 @@
 - [X] If the snake fills the entire window you win!
 
 ## 🤔 How it works
-To build this software I divided the project in 6 steps:
 
 > The code is well commented so I strongly recommend reading it!
 
-
+To build this software I divided the project in 6 steps:
 
 - Building the Stage
 
@@ -55,7 +54,7 @@ So, tp = 500 / 25, then tp = 20
 
 This tp variable has great importance for the game operation, because it works like a size determiner of all pieces, and, along with the ax/ay variables and the "for" loop (with the elements of the Trail Array), will determinate coordenates of the stage on wich the apples will apear and also where the snake will appear
 
--> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
+> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
 
 
 
