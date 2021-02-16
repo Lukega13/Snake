@@ -22,7 +22,17 @@ This tp variable has great importance for the game operation, because it works l
 -> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
 
 
+
 -------------> Building the Snake and How it Moves <-----------------------
+- A cauda da cobra é um Array, e esse Array começa sem nenhum elemento, quando ela come uma maça é adicionado 1 objeto com as posições vx e vy
+
+->>>> Como a cobra anda? (A função document.addEventListener("keydown", keyPush) possui um Switch para cada tecla que atribuem uma vel(direção) à cobra alterando a posição px e py da cobra pelas variaveis vx, e o loop....)
+
+px e py que recebem a velocidade vx e vy que é definida pelo keypress
+
+.shift() que apaga o ultimo
+
+
 
 - Building the Apples
 
@@ -34,7 +44,14 @@ The first apple is always placed at position 15,15 (ax = ay = 15)
 
 When player "eats" an apple another one is randomically generated again
 
+
+
+
 -------------> Start Positions <------------------
+- A cobra começa no meio do tabuleiro (posição px e py = 12), com velocidade de 90milissegundos por quadrado (setInterval(game,90))
+e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado porque o tail = 1
+
+
 
 - End Game Conditions
 
@@ -54,19 +71,6 @@ It's verified by the condition 'if (ax == px && ay == py)', that means: if the p
 are iqual to the position ax,ay of the apple (apple's position), then player recieves 10 points and another apple is created in a randomically position that snake is not occupying 
 
 The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
-
-
-
- 
-
-- A cobra começa no meio do tabuleiro (posição px e py = 12), com velocidade de 90milissegundos por quadrado (setInterval(game,90))
-e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado porque o tail = 1
-
-- A cauda da cobra é um Array, e esse Array começa sem nenhum elemento, quando ela come uma maça é adicional +1 nesse Array por meio
-da variavel let tail = 1
-
-->>>> Como a cobra anda? (A função document.addEventListener("keydown", keyPush) possui um Switch para cada tecla que atribuem uma vel(direção) à cobra alterando a posição px e py da cobra pelas variaveis vx, e o loop....)
-
 
 ## Download
 Try changing the software variables yourself, and modify the game rules as you wish
