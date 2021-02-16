@@ -40,7 +40,7 @@
 
 ## 🤔 How it works
 
-> The code is well commented so I strongly recommend reading it!
+> ✏️ The code is well commented so I strongly recommend reading it!
 
 To build this software I divided the project in 6 steps:
 
@@ -58,9 +58,9 @@ So, tp = 500 / 25, then tp = 20
 
 This tp variable has great importance for the game operation, because it works like a size determiner of all pieces, and, along with the ax/ay variables and the "for" loop (with the elements of the Trail Array), will determinate coordenates of the stage on wich the apples will apear and also where the snake will appear
 
-> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
+> ✏️ It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
 
-
+<br />
 
 **2. Building the Snake and How it Moves**
 - A cauda da cobra é um Array, e esse Array começa sem nenhum elemento, quando ela come uma maça é adicionado 1 objeto com as posições vx e vy
@@ -71,7 +71,7 @@ px e py que recebem a velocidade vx e vy que é definida pelo keypress
 
 .shift() que apaga o ultimo
 
-
+<br />
 
 **3. Building the Apples**
 
@@ -83,13 +83,13 @@ The first apple is always placed at position 15,15 (ax = ay = 15)
 
 When player "eats" an apple another one is randomically generated again
 
-
+<br />
 
 **4. Start Positions**
 - A cobra começa no meio do tabuleiro (posição px e py = 12), com velocidade de 90milissegundos por quadrado (setInterval(game,90))
 e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado porque o tail = 1
 
-
+<br />
 
 **5. End Game Conditions**
 
@@ -100,6 +100,8 @@ The game can be ended in 3 ways:
 2- User loses by running into its own tail
 
 3- User wins if the snake occupies the entire screen
+
+<br />
 
 **6. Score**
 
@@ -114,4 +116,6 @@ The score is showed in real time at the game by the variables score and finalSco
 Try changing the software variables yourself, and modify the game rules as you wish
 
 - Downloading...
+```
 $ git clone https://github.com/Lukega13/Snake.git
+```
