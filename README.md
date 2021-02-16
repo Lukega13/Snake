@@ -1,11 +1,9 @@
-<img src="./snake-01.jpg">
+<img src="./snake-banner.jpg">
 
 ## Overview
 The old snake game, but in JavaScript!
 
 OBS: The code is well commented so I strongly recommend reading it!
-
-<a href="https://twitter.com/LukeGuimaraes">
 
 ## How it works
 To build this software I divided the project in 6 steps:
