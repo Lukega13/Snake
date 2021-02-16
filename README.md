@@ -42,7 +42,7 @@
 
 - To build this software I divided the project in 6 steps:
 
-1. **Building the Stage**
+**1. Building the Stage**
 
 The stage was built using the HTMLCanvasElement.getContext('2d') method. This leads to the creation of a CanvasRenderingContext2D object representing a two-dimensional rendering, that will be our stage.
 
