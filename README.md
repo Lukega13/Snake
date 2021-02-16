@@ -20,18 +20,28 @@
 </a>
 </p>
 
-## Features
-
-
-## Technologies
+## 🛠 Technologies
 - [JavaScript](https://www.javascript.com/)
 
+## 📜 Rules and Features
+- [X] The snake is controlled by the arrow keys
+- [X] Player can pause the game pressing the "P" key
+- [X] The snake moves at a constant speed, only in 4 directions: north, south, east, or west
+- [X] The snake starts at the center of the board, moving north
+- [X] Snake "moves" by adding a square to its head and simultaneously deleting a square from the tip of its tail
+- [X] "Apples" appear at random locations and there is always exactly one apple visible
+- [X] When the snake eats an apple, it gets (1 square) longer
+- [X] A snake dies by either running into the edge of the board, or by running into its own tail
+- [X] If the snake dies the game is ended
+- [X] The final score is based on the number of apples eaten by the snake: for each apple eated you win 10 points
+- [X] If the snake fills the entire window you win!
 
-## How it works
-> Obs: The code is well commented so I strongly recommend reading it!
-
-
+## 🤔 How it works
 To build this software I divided the project in 6 steps:
+
+> The code is well commented so I strongly recommend reading it!
+
+
 
 - Building the Stage
 
