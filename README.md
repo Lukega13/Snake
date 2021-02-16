@@ -1,7 +1,5 @@
 <img src="./snake-banner.jpg">
 
-<h1 align="center">Snake Game</h1>
-
 <p align="center">🐍 The old snake game, but in JavaScript!</p>
 
 <p align="center">
