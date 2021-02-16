@@ -2,7 +2,17 @@
 The old snake game, but in JavaScript!
 
 
-## How it works (OU COMENTANDO O CÓDIGO)
+## How it works
+- Building the Stage
+
+<canvas id="stage" width="500" height="500"></canvas>
+<script>
+let stage = document.getElementById('stage');
+            let ctx = stage.getContext("2d");
+</script>
+
+
+
 - O tabuleiro é composto por 25 (px, que vai de 0 a 24) * 25 (py, que vai de 1 a 25) quadrados (625)
   Cada peça do tabuleiro tem um tamanho (tp) definido pelo tamanho do canvas (500px de heigh e width) / quantidade de peças (qp)
   Esse tp é importante porque ele, juntamente do ax/ay e do loop "for" com os elementos do array Trail, vão determinar cada coordenada do canvas em que as maçãs aparecerão e a cobra aparecerá, respectivamente 
