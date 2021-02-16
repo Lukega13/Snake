@@ -2,13 +2,22 @@
 The old snake game, but in JavaScript!
 
 ## How it works
-I divided the project in 6 steps:
+To build this software I divided the project in 6 steps:
+OBS: The code is well comented so I strongly recomend reading it!
+
 - Building the Stage
-The stage is composed by 25 * 25 squares, represented by px and py, respectively.
+The stage was built using the HTMLCanvasElement.getContext('2d') method. This leads to the creation of a CanvasRenderingContext2D object representing a two-dimensional rendering, that will be our stage.
+
+It is composed by 25 * 25 squares, represented by px and py, respectively.
+
 Each piece of the stage has a size (represented by tp), defined by the stage's size (500px) divided by the number of pieces (qp), that I've dicided it's 25.
+
 So, tp = 500 / 25, then tp = 20
+
 This tp variable has great importance for the game operation, because it works like a size determiner of all pieces, and, along with the ax/ay variables and the "for" loop (with the elements of the Trail Array), will determinate coordenates of the stage on wich the apples will apear and also where the snake will appear
--> É como se cada pixel do tabuleiro tivesse 1 tp. No caso, como o canvas tem 500px e o jogo tem 25peças, entao cada peça possui 20 pixels (1tp)
+
+-> It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
+
 
 - Building the Snake and How it Moves
 - Build the Apples
@@ -16,7 +25,7 @@ This tp variable has great importance for the game operation, because it works l
 - End Game Conditions
 - Pontuation
 
-The code is well comented so I strongly recomend reading it!
+
 
 
 
@@ -39,3 +48,9 @@ da variavel let tail = 1
 - Fim de jogo: O jogador perde caso... Isso é verificado dessa forma...
                O jogador ganha caso... Isso é verificado dessa forma....
 
+
+## Download
+Try changing the software variables yourself, and modify the game rules as you wish
+
+- Downloading...
+????Como fazer o download
