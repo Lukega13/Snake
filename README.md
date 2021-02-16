@@ -1,15 +1,16 @@
 # Snake
 The old snake game, but in JavaScript!
 
-
 ## How it works
+I divided the project in 6 steps:
 - Building the Stage
+- Building the Snake and How it Moves
+- Build the Apples
+- Start Positions
+- End Game Conditions
+- Pontuation
 
-<canvas id="stage" width="500" height="500"></canvas>
-<script>
-let stage = document.getElementById('stage');
-            let ctx = stage.getContext("2d");
-</script>
+The code is well comented so I strongly recomend reading it!
 
 
 
