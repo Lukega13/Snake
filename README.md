@@ -1,8 +1,10 @@
 <img src="./snake-banner.jpg">
 
-## Overview
-The old snake game, but in JavaScript!
+<h1 align="center">Snake Game</h1>
 
+<p align="center">The old snake game, but in JavaScript!</p>
+
+## Overview
 OBS: The code is well commented so I strongly recommend reading it!
 
 ## How it works
