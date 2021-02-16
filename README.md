@@ -4,6 +4,11 @@
 
 <p align="center">🐍 The old snake game, but in JavaScript!</p>
 
+https://img.shields.io/static/v1?label=<version>&message=<v1.0>&color=<rgb(0,0,0)>&style=<plastic>&logo=<none>
+
+https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=<rgb(107, 200, 105)>&style=<flat>&logo=<none>
+
+
 ## Overview
 OBS: The code is well commented so I strongly recommend reading it!
 
@@ -75,7 +80,7 @@ are iqual to the position ax,ay of the apple (apple's position), then player rec
 
 The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
 
-## Download
+## Installation
 Try changing the software variables yourself, and modify the game rules as you wish
 
 - Downloading...
