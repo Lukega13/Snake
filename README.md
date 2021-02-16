@@ -4,9 +4,9 @@
 
 <p align="center">🐍 The old snake game, but in JavaScript!</p>
 
-https://img.shields.io/static/v1?label=<version>&message=<v1.0>&color=<rgb(0,0,0)>&style=<plastic>&logo=<none>
+<img src="https://img.shields.io/static/v1?label=<version>&message=<v1.0>&color=<rgb(0,0,0)>&style=<plastic>&logo=<none>">
 
-https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=<rgb(107, 200, 105)>&style=<flat>&logo=<none>
+<img src="https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=<rgb(107, 200, 105)>&style=<flat>&logo=<none>">
 
 
 ## Overview
