@@ -7,8 +7,12 @@
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
 </a>
 
-<a hred="">
+<a href="">
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=status&message=ready&color=rgb(107,200,105)&style=flat&logo=none">
+</a>
+
+<a href="">
+<img alt="Version v1.0" src="https://img.shields.io/static/v1?label=license&message=MIT&color=rgb(31,54,125)&style=flat&logo=none">
 </a>
 
 <a href="www.linkedin.com/in/luke-guimaraes">
@@ -20,12 +24,22 @@
 </a>
 </p>
 
-> Obs: The code is well commented so I strongly recommend reading it!
-
 ## Features
 
 
+## Technologies
+
+
+## Author
+
+
+## License
+
+
 ## How it works
+> Obs: The code is well commented so I strongly recommend reading it!
+
+
 To build this software I divided the project in 6 steps:
 
 - Building the Stage
