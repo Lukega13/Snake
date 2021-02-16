@@ -9,8 +9,8 @@
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
 </a>
 
-<a href="">
-<img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white&link=www.linkedin.com/in/luke-guimaraes">
+<a href="www.linkedin.com/in/luke-guimaraes">
+<img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white">
 </a>
 
 <a href="https://twitter.com/LukeGuimaraes">
