@@ -1,7 +1,7 @@
 # Snake
 The old snake game, but in JavaScript!
 
-OBS: The code is well comented so I strongly recomend reading it!
+OBS: The code is well commented so I strongly recommend reading it!
 
 ## How it works
 To build this software I divided the project in 6 steps:
