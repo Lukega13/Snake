@@ -6,15 +6,15 @@
 
 <p align="center">
 <a hred="">
-<img src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
+<img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
 </a>
 
 <a href="">
-<img src="https://img.shields.io/static/v1?label=license&message=MIT&color=rgb(107,200,105)&style=flat&logo=none">
+<img src="https://img.shields.io/static/v1?label=status&message=ready&color=rgb(33,45,105)&style=flat&logo=none">
 </a>
 
-<a href="">
-<img src="https://img.shields.io/static/v1?label=status&message=finished&color=rgb(107,200,105)&style=flat&logo=none">
+<a href="https://twitter.com/LukeGuimaraes">
+<img alt="Twitter URL" src="https://img.shields.io/twitter/url?label=Twitter&url=https%3A%2F%2Ftwitter.com%2FLukeGuimaraes">
 </a>
 </p>
 
