@@ -24,12 +24,7 @@
 
 
 ## Technologies
-
-
-## Author
-
-
-## License
+- [JavaScript](https://www.javascript.com/)
 
 
 ## How it works
