@@ -1,4 +1,5 @@
 # Snake
+<img src="./snake-01.jpg">
 The old snake game, but in JavaScript!
 
 OBS: The code is well commented so I strongly recommend reading it!
