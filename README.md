@@ -18,10 +18,6 @@
 <a href="www.linkedin.com/in/luke-guimaraes">
 <img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white">
 </a>
-
-<a href="https://twitter.com/LukeGuimaraes">
-<img alt="Twitter URL" src="https://img.shields.io/twitter/url?label=Twitter&url=https%3A%2F%2Ftwitter.com%2FLukeGuimaraes">
-</a>
 </p>
 
 ## Features
