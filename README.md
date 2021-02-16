@@ -10,7 +10,7 @@
 </a>
 
 <a href="">
-<img src="https://img.shields.io/static/v1?label=status&message=ready&color=rgb(33,45,105)&style=flat&logo=none">
+<img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white&link=www.linkedin.com/in/luke-guimaraes">
 </a>
 
 <a href="https://twitter.com/LukeGuimaraes">
