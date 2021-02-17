@@ -56,6 +56,20 @@ To build this software I divided the project in 7 steps:
 
 The stage was built using the HTMLCanvasElement.getContext('2d') method. This leads to the creation of a CanvasRenderingContext2D object representing a two-dimensional rendering, that will be our stage.
 
+The stage was painted using the propertys .fillStyle and .fillRect of the CanvasElement
+
+```
+// creating the stage usind the getContext("2d") method
+
+let stage = document.getElementById('stage');
+let ctx = stage.getContext("2d");
+    
+// Painting the canvas stage with .fillStyle property
+
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, stage.width, stage.height);
+```
+
 It is composed by 25 * 25 squares, represented by px and py, respectively.
 
 Each piece of the stage has a size (represented by tp), defined by the stage's size (500px) divided by the number of pieces (qp), that I've dicided it's 25.
@@ -64,7 +78,7 @@ So, tp = 500 / 25, then tp = 20
 
 This tp variable has great importance for the game operation, because it works like a size determiner of all pieces, and, along with the ax/ay variables and the "for" loop (with the elements of the Trail Array), will determinate coordenates of the stage on wich the apples will apear and also where the snake will appear
 
-> ✏️ It's as is each pixel of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece of the board has 20 pixels (or 1 tp)
+> ✏️ It's as if each pixel (square) of the stage has 1 tp. As the canvas has 500px and the game has 25 pieces, so each piece (square) of the board has 20 pixels (or 1 tp)
 
 <br />
 
@@ -90,16 +104,31 @@ The first apple is always placed at position 15,15 (ax = ay = 15)
 When player "eats" an apple another one is randomically generated again
 
 ```
- let ax = ay = 15; // apple's starting X and Y point
+ // Apple's starting X and Y point
+ 
+ let ax = ay = 15; 
+ 
+ // Painting the apple's position in canvas
  
  ctx.fillStyle = "red";
  ctx.fillRect(ax * tp, ay * tp, tp, tp);
  
+ // When an apples is eaten
+ 
  if (ax == px && ay == py) {
  
- tail++;
+ // Snake's tail gets bigger
+ 
+ tail++; 
+ 
+ // The score is increased by 10 and is displayed at the game screen in real time
+ 
+ score += 10
+ let finalScore = score
+ document.getElementById("score").innerHTML = finalScore
  
  // And a new apple is created in a random position, which is different from snake's current position
+ 
  function randomApple() {
   ax = Math.floor(Math.random() * qp);
   ay = Math.floor(Math.random() * qp);
@@ -107,6 +136,7 @@ When player "eats" an apple another one is randomically generated again
  randomApple()
  
  // If the position of the new apple is equal to the actual position of the snake, then a new apple wil be generated
+ 
  for (let i = 0; i < trail.length; i++) {
  if (trail[i].x == ax && trail[i].y == ay && tail != 1) {
    randomApple()
@@ -158,17 +188,28 @@ The game can be ended in 3 ways:
 
 - User loses by running into one of the four edges of the board:
 ```
+// if snake runs into the left edge the game is over
+
 if (px < 0) {
-  gameover() // if snake runs into the left edge the game is over
+  gameover() 
 }
+
+// if snake runs into the right edge the game is over
+
 if (px > qp - 1) {
-  gameover() // if snake runs into the right edge the game is over
+  gameover() 
 }
+
+// if snake runs into the top edge the game is over
+
 if (py < 0) {
-  gameover() // if snake runs into the top edge the game is over
+  gameover() 
 }
+
+// if snake runs into the bottom edge the game is over
+
 if (py > qp - 1) {
-  gameover() // if snake runs into the bottom edge the game is over
+  gameover() 
 }
 ```
 
@@ -186,28 +227,149 @@ if (i == 624) {
 }
 ```
 
+When game is ended one of the functions below is called, whether the player wins or loses
+```
+// If player loses the gameover() function is called
+
+function gameover() {
+ let finalScore = score
+ document.getElementById('gameover').style.display = 'flex';
+ document.getElementById("final-points-lose").innerHTML = 'You\'ve made ' + finalScore + ' points!'
+
+// Stops the interval of the game, stopping the entire game
+
+ interval(false)
+ gameisover = true
+}
+
+// If player wins the win() function is called
+
+function win() {
+ let finalScore = score
+ document.getElementById('win').style.display = 'flex';
+ document.getElementById("final-points-win").innerHTML = 'You\'ve made ' + finalScore + ' points!'
+
+ interval(false)
+ gameisover = true
+}
+```
+
 <br />
 
 **6. Score**
 
 Score starts at 0 and each "eaten apple" (snake passes through) gives 10 points for the player
 
-It's verified by the condition 'if (ax == px && ay == py)', that means: if the positions px,py of the snake (head)
-are iqual to the position ax,ay of the apple (apple's position), then player recieves 10 points and another apple is 
-created in a randomically position that snake is not occupying 
+It's verified by the code below
 
-The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
+```
+// When game starts the score is reseted and the score screen is showed along with the game screen
+
+let score = 0
+document.getElementById('score').style.display = 'block'
+document.getElementById("score").innerHTML = '0'
+
+// When the snake's head position (px,py) is equal to the apple's position (ax,ay)...
+
+if (ax == px && ay == py) {
+
+//The score is increased by 10 
+score += 10
+
+// And is displayed at the game screen in real time
+let finalScore = score
+document.getElementById("score").innerHTML = finalScore
+}
+```
 
 <br />
 
 **7. Aditional Features**
 
-- Instructions
+- Instructions Screen
+```
+//The functions to enter and exit the Instructions Screen by clicking at the button on Menu Screen
+
+function showInstructions() {
+ document.getElementById('instructions-board').style.display = 'flex'
+}
+
+function exitInstructions() {
+ document.getElementById('instructions-board').style.display = 'none'
+}
+
+```
 
 - Pause and Resume
 
-- Restart
+When player presses the "P" key on keyboard the pause() function is called and game is paused. When pressed again, the game is unpaused.
 
+```
+// 1- The keyPush() function understands when "P" key is pressed and calls the pause() function
+
+document.addEventListener("keydown", keyPush);
+
+function keyPush(event) {
+
+ switch (event.keyCode) {
+        
+  case 80: // "P" key for pausing the game
+   pause()
+   break
+  
+  default:
+
+   break;
+ }
+
+}
+    
+// Show variable is used to make sure that when player presses the "P" key for the 2º time, the game can only be unpaused
+let show = true
+
+// The gameisover variable is used to make sure that the game can only be paused and unpaused when game is running
+let gameisover = false
+
+// 2- When pause() is called, and Game is not Over, it can do 2 thinks, depending of the situation of the show variables:
+
+function pause() {
+
+ if (gameisover == false) { // Confirms if Game is not Over
+ 
+  if (show == true) { // 1. When "P" is pressed for the first time show will be true and the game will be paused
+  interval(false)
+  document.getElementById('pause-screen').style.display = 'flex'
+
+  } else { // 2. But, when "P" is pressed for the second time show will be false and the game will be unpaused
+
+   interval(true)
+   document.getElementById('pause-screen').style.display = 'none'
+
+  }
+
+  show = !show // Changes the variable show from true to false or false to true
+ }
+}
+```
+
+- Restart or Back to Menu
+
+After Game Over player can decide either Restart the game or go Back to the Menu Screen
+
+```
+//The function calls the start() function of the game again and removes the Game Over Screen
+function reset() {
+ document.getElementById('gameover').style.display = 'none';
+
+ start()
+}
+
+//The function simply reloads the page
+function menu() {
+ window.location.reload()
+}
+
+```
 
 <br/>
 
