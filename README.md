@@ -59,7 +59,7 @@ The stage was built using the HTMLCanvasElement.getContext('2d') method. This le
 The stage was painted using the propertys .fillStyle and .fillRect of the CanvasElement
 
 ```
-// creating the stage usind the getContext("2d") method
+// Creating the stage usind the getContext("2d") method
 
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
