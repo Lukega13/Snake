@@ -1,6 +1,6 @@
 <img src="./snake-banner.jpg">
 
-<h2 align="center">🐍 The old snake game, but in JavaScript!
+<h2 align="center">🐍 The old snake game, but in JavaScript! 
 <img alt="JavaScript" align="center" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"/>
 </h2>
 
