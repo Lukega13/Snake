@@ -147,7 +147,7 @@ Try changing the software variables yourself, and modify the game rules as you w
 
 <br/>
 
-- Downloading...
+Downloading...
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
