@@ -25,6 +25,8 @@
 ## 🛠 Technologies
 - [JavaScript](https://www.javascript.com/)
 
+<br/>
+
 ## 📜 Rules and Features
 - [X] The snake is controlled by the arrow keys
 - [X] Player can pause the game pressing the "P" key
@@ -37,6 +39,8 @@
 - [X] If the snake dies the game is ended
 - [X] The final score is based on the number of apples eaten by the snake: for each apple eated you win 10 points
 - [X] If the snake fills the entire window you win!
+
+<br/>
 
 ## 🤔 How it works
 
@@ -136,6 +140,8 @@ are iqual to the position ax,ay of the apple (apple's position), then player rec
 
 The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
 
+<br/>
+
 ## ☁️ Installation
 Try changing the software variables yourself, and modify the game rules as you wish
 
@@ -145,6 +151,8 @@ Try changing the software variables yourself, and modify the game rules as you w
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
+
+<br/>
 
 ## Author
 | [<img src="https://avatars.githubusercontent.com/u/68627544?s=96&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
