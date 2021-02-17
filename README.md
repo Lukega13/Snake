@@ -22,6 +22,8 @@
 </a>
 </p>
 
+<br/>
+
 ## 📜 Rules and Features
 - [X] The snake is controlled by the arrow keys
 - [X] Player can pause the game pressing the "P" key
@@ -87,11 +89,58 @@ The first apple is always placed at position 15,15 (ax = ay = 15)
 
 When player "eats" an apple another one is randomically generated again
 
+```
+ let ax = ay = 15; // apple's starting X and Y point
+ 
+ ctx.fillStyle = "red";
+ ctx.fillRect(ax * tp, ay * tp, tp, tp);
+ 
+ if (ax == px && ay == py) {
+ tail++;
+ // And a new apple is created in a random position, which is different from snake's current position
+ function randomApple() {
+ ax = Math.floor(Math.random() * qp);
+ ay = Math.floor(Math.random() * qp);
+ }
+ randomApple()
+ 
+ if (ax == px || ay == py) {???????????
+```
+
 <br />
 
 **4. Start Positions**
-- A cobra começa no meio do tabuleiro (posição px e py = 12), com velocidade de 90milissegundos por quadrado (setInterval(game,90))
-e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado porque o tail = 1
+Snake starts at the middle of the board (1), with a speed of 90ms per square (2) and heading north (3)
+
+The initial size of the snake is 1 square (4) 
+
+```
+1- Starting position of the snake
+let px = 12; // snake's starting X point
+let py = 12; // snake's starting Y point
+    
+2- S
+let intervalo = null
+
+function interval(flag) {
+  if (flag) {
+  intervalo = setInterval(game, 90);
+  } else {
+  clearInterval(intervalo)
+  }
+}
+interval(true)
+
+3- Starting direction of the snake
+let vx = 0; // initial X speed
+let vy = -vel; // initial Y speed
+
+px += vx;
+py += vy;
+
+4- Starting size of the snake
+tail = 1
+```
 
 <br />
 
@@ -136,7 +185,8 @@ if (i == 624) {
 Score starts at 0 and each "eaten apple" (snake passes through) gives 10 points for the player
 
 It's verified by the condition 'if (ax == px && ay == py)', that means: if the positions px,py of the snake (head)
-are iqual to the position ax,ay of the apple (apple's position), then player recieves 10 points and another apple is created in a randomically position that snake is not occupying 
+are iqual to the position ax,ay of the apple (apple's position), then player recieves 10 points and another apple is 
+created in a randomically position that snake is not occupying 
 
 The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
 
