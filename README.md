@@ -46,9 +46,9 @@
 
 ## 🤔 How it works
 
-> ✏️ The code is well commented so I strongly recommend reading it!
+To build this software I divided the project in 7 steps:
 
-To build this software I divided the project in 6 steps:
+> ✏️ The code is well commented so I strongly recommend reading it!
 
 <br />
 
@@ -96,15 +96,22 @@ When player "eats" an apple another one is randomically generated again
  ctx.fillRect(ax * tp, ay * tp, tp, tp);
  
  if (ax == px && ay == py) {
+ 
  tail++;
+ 
  // And a new apple is created in a random position, which is different from snake's current position
  function randomApple() {
- ax = Math.floor(Math.random() * qp);
- ay = Math.floor(Math.random() * qp);
+  ax = Math.floor(Math.random() * qp);
+  ay = Math.floor(Math.random() * qp);
  }
  randomApple()
  
- if (ax == px || ay == py) {???????????
+ // If the position of the new apple is equal to the actual position of the snake, then a new apple wil be generated
+ for (let i = 0; i < trail.length; i++) {
+ if (trail[i].x == ax && trail[i].y == ay && tail != 1) {
+   randomApple()
+  }
+ }
 ```
 
 <br />
@@ -190,6 +197,17 @@ are iqual to the position ax,ay of the apple (apple's position), then player rec
 created in a randomically position that snake is not occupying 
 
 The score is showed in real time at the game by the variables score and finalScore, and the .innerHtml property of the "score" element
+
+<br />
+
+**7. Aditional Features**
+
+- Instructions
+
+- Pause and Resume
+
+- Restart
+
 
 <br/>
 
