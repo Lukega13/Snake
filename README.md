@@ -84,7 +84,7 @@ The snake's movement is determined by 5 factors:
 
 <br />
 
-1- The vx and vy variables: when player presses the arrows on the keyboard, these variables have their values changed
+**1- The vx and vy variables: when player presses the arrows on the keyboard, these variables have their values changed**
 ```
 // How the player will make the snake move
 document.addEventListener("keydown", keyPush);
@@ -127,7 +127,7 @@ function keyPush(event) {
 
 <br />
 
-2- The interval of 90ms in which the game() function is called
+**2- The interval of 90ms in which the game() function is called**
 ```
 let intervalo = null
 
@@ -145,7 +145,7 @@ interval(true)
 
 <br />
 
-3- The px and py variables, which receives the values of vx and vy for each time the game() function is called
+**3- The px and py variables, which receives the values of vx and vy for each time the game() function is called**
 ```
 function game() {
  px += vx;
@@ -157,7 +157,7 @@ function game() {
 
 <br />
 
-4- The Trail Array along with the tail variable
+**4- The Trail Array along with the tail variable**
 ```
 let trail = []; // The Array that represents the Snake's Trail - Starts empty, with the snake without a "body"
 tail = 1; // The tail starts with 1, which means that the snake will be only 1 square in length
@@ -175,7 +175,7 @@ while (trail.length > tail) {
 
 <br />
 
-5- The "for" loop that paints the snake and its trail
+**5- The "for" loop that paints the snake and its trail**
 ```
 // Painting the snake
 
@@ -325,6 +325,8 @@ tail = 1
 
 The game can be ended in 3 ways:
 
+<br />
+
 - User loses by running into one of the four edges of the board:
 ```
 // if snake runs into the left edge the game is over
@@ -352,6 +354,8 @@ if (py > qp - 1) {
 }
 ```
 
+<br />
+
 - User loses by running into its own tail: 
 ```
 if (trail[i].x == px && trail[i].y == py && tail != 1) {
@@ -359,12 +363,16 @@ if (trail[i].x == px && trail[i].y == py && tail != 1) {
 }
 ```
 
+<br />
+
 - User wins if the snake occupies the entire screen
 ```
 if (i == 624) {
   win()
 }
 ```
+
+<br />
 
 When game is ended one of the functions below is called, whether the player wins or loses
 ```
@@ -425,6 +433,8 @@ document.getElementById("score").innerHTML = finalScore
 
 **7. Aditional Features**
 
+<br />
+
 - Instructions Screen
 ```
 // The functions to enter and exit the Instructions Screen by clicking at the button on Menu Screen
@@ -438,6 +448,8 @@ function exitInstructions() {
 }
 
 ```
+
+<br />
 
 - Pause and Resume
 
@@ -491,6 +503,8 @@ function pause() {
 }
 ```
 
+<br />
+
 - Restart or Back to Menu
 
 After Game Over player can decide either Restart the game or go Back to the Menu Screen
@@ -509,18 +523,12 @@ function menu() {
 }
 
 ```
-
-<br/>
-
 ## ☁️ Installation
 Try changing the software variables yourself, and modify the game rules as you wish
 
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
-
-<br/>
-
 ## Author
 | [<img src="https://avatars.githubusercontent.com/u/68627544?s=460&u=eb801d3c7b0c228bf6ee1d02341d24ddf278589f&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
 | :---: |
