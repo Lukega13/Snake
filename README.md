@@ -79,13 +79,156 @@ This tp variable has great importance for the game operation, because it works l
 <br />
 
 **2. Building the Snake and How it Moves**
-- A cauda da cobra é um Array, e esse Array começa sem nenhum elemento, quando ela come uma maça é adicionado 1 objeto com as posições vx e vy
 
-->>>> Como a cobra anda? (A função document.addEventListener("keydown", keyPush) possui um Switch para cada tecla que atribuem uma vel(direção) à cobra alterando a posição px e py da cobra pelas variaveis vx, e o loop....)
+The snake's movement is determined by 5 factors:
 
-px e py que recebem a velocidade vx e vy que é definida pelo keypress
+<br />
 
-.shift() que apaga o ultimo
+1- The vx and vy variables: when player presses the arrows on the keyboard, these variables have their values changed
+```
+// How the player will make the snake move
+document.addEventListener("keydown", keyPush);
+
+// This is the fuction that is called when a "keydown" event is triggered.
+function keyPush(event) {
+
+// It compares if the pressed key is one of the arrows of the keyboard.
+// If it is the switch understands wich arrow was pressed and assigns a value to the vx and vy variables
+
+ switch (event.keyCode) {
+
+  case 37: // Left Arrow
+    vx = -vel;
+    vy = 0;
+    break;
+
+  case 38: // Up Arrow
+    vx = 0;
+    vy = -vel;
+    break;
+
+  case 39: // Right Arrow
+    vx = vel;
+    vy = 0;
+    break;
+
+  case 40: // Down Arrow
+    vx = 0;
+    vy = vel;
+    break;
+
+  default:
+
+    break;
+  }
+
+}
+```
+
+<br />
+
+2- The interval of 90ms in which the game() function is called
+```
+let intervalo = null
+
+function interval(flag) {
+ if (flag) {
+  intervalo = setInterval(game, 90);
+ } else {
+  clearInterval(intervalo)
+ }
+}
+
+interval(true)
+
+```
+
+<br />
+
+3- The px and py variables, which receives the values of vx and vy for each time the game() function is called
+```
+function game() {
+ px += vx;
+ py += vy;
+ 
+ ...
+}
+```
+
+<br />
+
+4- The Trail Array along with the tail variable
+```
+let trail = []; // The Array that represents the Snake's Trail - Starts empty, with the snake without a "body"
+tail = 1; // The tail starts with 1, which means that the snake will be only 1 square in length
+
+// Creates an JS Object inside the trail Array that, alog with the "for" loop, will be responsible for the movement of the snake 
+
+trail.push({ x: px, y: py })
+
+// Removes the first element of the array when the trail is higher then tail
+
+while (trail.length > tail) {
+ trail.shift();
+}
+```
+
+<br />
+
+5- The "for" loop that paints the snake and its trail
+```
+// Painting the snake
+
+for (let i = 0; i < trail.length; i++) {
+
+ if (i == 0) { 
+ 
+ // Paints the head of the snake if it has no trail (i = 0)
+ ctx.fillStyle = "#8ead2d";
+ ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1);
+
+ } else {
+ 
+ // Paints the head of the snake if it has a trail
+ ctx.fillStyle = "#8ead2d";
+ ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1);
+
+ // Paints the trail of the snake
+ ctx.fillStyle = "#364713";
+ ctx.fillRect(trail[i - 1].x * tp, trail[i - 1].y * tp, tp - 1, tp - 1);
+}
+```
+
+<br />
+
+**I mean**
+
+The snake is the Array Trail, which starts without any objects. Which means, when the game starts the snake doesn't exist yet
+
+When the player presses an arrow on the keyboard, the keyPush() function detects and assigns a value to the variables vx and vy, 
+which depends on which key was pressed
+
+The game runs at an interval of 90 to 90ms, determined by the interval() function
+
+When the game is started the values assigned to the variables vx and vy are added to the variables px and py, changing the position
+of the snake each time the function game() is called
+
+The snake is painted based on the values of the x and y properties of the Trail Array objects. These x and y values are the snake's
+vx and vy values, that were assigned to the Array using the .push() method
+
+However, the first time game() is started, the snake doesn't appear because the Trail Array is empty and the .push() of the variables 
+vx and vy is only done after the snake painting, with the "for" loop
+
+The second time that game() is started the snake appears, because the Trail Array already has 1 Object that was added the first time game()
+was executed. However, after painting the snake, the variables vx and vy are sent back to the Trail Array as a new Object, through .push()
+
+Then, right after .push() the while method checks if there are more objects in the Trail Array than is necessary for the current tail size.
+In this case, while observes that trail.length (2 objects) is greater than the current tail (1), so it activates the trail.shift() method 
+that removes the first object of the Array (the object that was just added), causing the snake to remain with only 1 object, until it eats
+an apple and the tail variable changes to 2, allowing 2 objects inside the Array Trail
+
+Game starts with the starting positions px and py equal to 12 (approximately in the middle of the board); initial speed vx = 0 and vy = - 1; and the snake starts 
+with just 1 square in length, determined by the variable tail = 1
 
 <br />
 
