@@ -120,7 +120,7 @@ The initial size of the snake is 1 square (4)
 let px = 12; // snake's starting X point
 let py = 12; // snake's starting Y point
     
-2- S
+2- Speed of the snake movimentation in milliseconds per square
 let intervalo = null
 
 function interval(flag) {
