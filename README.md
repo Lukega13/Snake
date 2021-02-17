@@ -16,6 +16,8 @@
 <a href="http://www.linkedin.com/in/luke-guimaraes">
 <img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white">
 </a>
+
+<img src="https://img.shields.io/github/stars/Lukega13/Snake.svg?style=social&label=Star&maxAge=2592000">
 </p>
 
 <br/>
