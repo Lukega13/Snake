@@ -6,11 +6,11 @@
 
 <p align="center">
 <a hred="https://github.com/Lukega13/Snake">
-<img alt="Version v1.0" src="https://img.shields.io/static/v1?label=version&message=v1.0&color=rgb(107,200,105)&style=flat&logo=none">
+<img alt="Version v1.0" src="https://img.shields.io/github/release/Naereen/StrapDown.js.svg">
 </a>
 
 <a href="https://github.com/Lukega13/Snake/blob/master/LICENSE.md">
-<img alt="Version v1.0" src="https://img.shields.io/static/v1?label=license&message=MIT&color=rgb(31,54,125)&style=flat&logo=none">
+<img alt="Lincese MIT" src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg">
 </a>
 
 <a href="http://www.linkedin.com/in/luke-guimaraes">
@@ -36,7 +36,11 @@
 <br/>
 
 ## 🛠 Technologies
-- [JavaScript](https://www.javascript.com/)
+<div align="left">
+<img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
+<img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+</div>
 
 <br/>
 
