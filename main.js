@@ -130,8 +130,12 @@ function start() {// the function called when player clicks on the start button 
             }
             randomApple()
 
-            if (ax == px || ay == py) {
-                randomApple()
+            /* If the position of the new apple is equal to the actual position of the snake, then a new apple 
+            wil be generated*/
+            for (let i = 0; i < trail.length; i++) {
+                if (trail[i].x == ax && trail[i].y == ay && tail != 1) {
+                    randomApple()
+                }
             }
 
             // Finally the score is increased by 10 and is displayed at the game screen in real time
