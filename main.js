@@ -1,31 +1,32 @@
-function start() {// the function called when player clicks on the start button ate menu screen
+// The function that starts the game, called when player clicks on the start button at menu screen 
+function start() {
 
-    // creating the stage usind the getContext("2d") method
+    // Creating the stage usind the getContext("2d") method
     let stage = document.getElementById('stage');
     let ctx = stage.getContext("2d");
 
-    // main variables of the game
-    const vel = 1; // speed (How many pieces the snake will move each time the game is updated - 80ms)
-    let vx = 0; // initial X speed
-    let vy = -vel; // initial Y speed
-    let px = 12; // snake's starting X point
-    let py = 12; // snake's starting Y point
-    let tp = 20; // size of each piece (each piece has 500px / 25 pieces = 20 "sizes", that is the tp variable)  
-    let qp = 25; // amount of pieces
-    let ax = ay = 15; // apple's starting X and Y point
+    // Main variables of the game
+    const vel = 1; // Speed (How many pieces the snake will move each time the game is updated - 80ms)
+    let vx = 0; // Initial X speed
+    let vy = -vel; // Initial Y speed
+    let px = 12; // Snake's starting X point
+    let py = 12; // Snake's starting Y point
+    let tp = 20; // Size of each piece (each piece has 500px / 25 pieces = 20 "sizes", that is the tp variable)  
+    let qp = 25; // Amount of pieces
+    let ax = ay = 15; // Apple's starting X and Y point
 
-    let trail = []; // the Array the represents the Snake's Trail - Starts empty, with no trail 
-    tail = 1; // as the snake eats the apples the Trail is added by 1 tail, adding 1 piece for the snake's trail
+    let trail = []; // The Array the represents the Snake's Trail - Starts empty, with no trail 
+    tail = 1; // As the snake eats the apples the Trail is added by 1 tail, adding 1 piece for the snake's trail
 
-    // shows the score of the game, starting in 0
+    // Shows the score of the game, starting in 0
     let score = 0
     document.getElementById('score').style.display = 'block'
     document.getElementById("score").innerHTML = '0'
 
-    // removes the menu screen to the start of the game
+    // Removes the menu screen to the start of the game
     document.getElementById('menu').style.display = 'none'
 
-    // this is the interval in which the game will run, and along with const vel will determinate the speed of the snake
+    // This is the interval in which the game will run, and along with const vel will determinate the speed of the snake
     let intervalo = null
 
     function interval(flag) {
@@ -37,7 +38,7 @@ function start() {// the function called when player clicks on the start button 
     }
     interval(true)
 
-    // the main function of the game, called every 90 millisecond by the interval when the start() function is called
+    // The main function of the game, called every 90 millisecond by the interval when the start() function is called
     function game() {
 
         /* the snake recieves the speed of variables vx and vy, wich recieved their values from the keyPush() function
@@ -47,16 +48,16 @@ function start() {// the function called when player clicks on the start button 
 
         // Game over conditions
         if (px < 0) {
-            gameover() // if snake runs into the left edge the game is over
+            gameover() // If snake runs into the left edge the game is over
         }
         if (px > qp - 1) {
-            gameover() // if snake runs into the right edge the game is over
+            gameover() // If snake runs into the right edge the game is over
         }
         if (py < 0) {
-            gameover() // if snake runs into the top edge the game is over
+            gameover() // If snake runs into the top edge the game is over
         }
         if (py > qp - 1) {
-            gameover() // if snake runs into the bottom edge the game is over
+            gameover() // If snake runs into the bottom edge the game is over
         }
 
         // Observations about the movimentation
@@ -84,8 +85,6 @@ function start() {// the function called when player clicks on the start button 
         ctx.fillRect(ax * tp, ay * tp, tp, tp);
 
         // Painting the snake
-        /* Create an JS Object inside the trail Array that, alog with the "for" loop, will be responsible for the
-        movement of the snake */
         for (let i = 0; i < trail.length; i++) {
 
             if (i == 0) {
@@ -114,9 +113,13 @@ function start() {// the function called when player clicks on the start button 
             }
         }
 
+        /* Creates an JS Object inside the trail Array that, alog with the "for" loop, will be responsible for the
+        movement of the snake */
         trail.push({ x: px, y: py })
+
+        // Removes the first element of the array when the trail is higher then tail
         while (trail.length > tail) {
-            trail.shift(); // Removes the first element of the array when the trail is higher then tail
+            trail.shift();
         }
 
         // When the snake "eats" (passes through the apple) its trail is increased by 1 tail (tail++)
@@ -177,20 +180,26 @@ function start() {// the function called when player clicks on the start button 
                 vx = -vel;
                 vy = 0;
                 break;
+
             case 38: // Up Arrow
                 vx = 0;
                 vy = -vel;
                 break;
+
             case 39: // Right Arrow
                 vx = vel;
                 vy = 0;
                 break;
+
             case 40: // Down Arrow
                 vx = 0;
                 vy = vel;
                 break;
+
             case 80: // "P" key for pausing the game
                 pause()
+                break
+
             default:
 
                 break;
