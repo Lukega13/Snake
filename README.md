@@ -95,11 +95,35 @@ e direção para norte (vy = -vel), o tamanho inicial da cobra é so 1 quadrado 
 
 The game can be ended in 3 ways:
 
-1- User loses by running into one of the four edges of the board
+- User loses by running into one of the four edges of the board:
+```
+if (px < 0) {
+  gameover() // if snake runs into the left edge the game is over
+}
+if (px > qp - 1) {
+  gameover() // if snake runs into the right edge the game is over
+}
+if (py < 0) {
+  gameover() // if snake runs into the top edge the game is over
+}
+if (py > qp - 1) {
+  gameover() // if snake runs into the bottom edge the game is over
+}
+```
 
-2- User loses by running into its own tail
+- User loses by running into its own tail: 
+```
+if (trail[i].x == px && trail[i].y == py && tail != 1) {
+  gameover()
+}
+```
 
-3- User wins if the snake occupies the entire screen
+- User wins if the snake occupies the entire screen
+```
+if (i == 624) {
+  win()
+}
+```
 
 <br />
 
@@ -115,7 +139,13 @@ The score is showed in real time at the game by the variables score and finalSco
 ## ☁️ Installation
 Try changing the software variables yourself, and modify the game rules as you wish
 
+<br/>
+
 - Downloading...
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
+
+## Author
+| [<img src="https://avatars.githubusercontent.com/u/68627544?s=96&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
+| :---: |
