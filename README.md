@@ -535,6 +535,6 @@ Try changing the software variables yourself, and modify the game rules as you w
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
-## Author
+## 😎 Author
 | [<img src="https://avatars.githubusercontent.com/u/68627544?s=460&u=eb801d3c7b0c228bf6ee1d02341d24ddf278589f&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
 | :---: |
