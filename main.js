@@ -15,7 +15,7 @@ function start() {
     let qp = 25; // Amount of pieces
     let ax = ay = 15; // Apple's starting X and Y point
 
-    let trail = []; // The Array the represents the Snake's Trail - Starts empty, with no trail 
+    let trail = []; // The Array that represents the Snake's Trail - Starts empty, with the snake without a "body"
     tail = 1; // As the snake eats the apples the Trail is added by 1 tail, adding 1 piece for the snake's trail
 
     // Shows the score of the game, starting in 0
@@ -97,7 +97,7 @@ function start() {
                 ctx.fillStyle = "#8ead2d";
                 ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1);
 
-                // Pains the trail of the snake
+                // Paints the trail of the snake
                 ctx.fillStyle = "#364713";
                 ctx.fillRect(trail[i - 1].x * tp, trail[i - 1].y * tp, tp - 1, tp - 1);
             }
@@ -108,7 +108,7 @@ function start() {
             }
 
             // The winning condition: player has to make the snake occupy the entire screen
-            if (i == 624) {
+            if (trail.length == 625) {
                 win()
             }
         }

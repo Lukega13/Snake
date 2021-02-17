@@ -225,7 +225,7 @@ was executed. However, after painting the snake, the variables vx and vy are sen
 Then, right after .push() the while method checks if there are more objects in the Trail Array than is necessary for the current tail size.
 In this case, while observes that trail.length (2 objects) is greater than the current tail (1), so it activates the trail.shift() method 
 that removes the first object of the Array (the object that was just added), causing the snake to remain with only 1 object, until it eats
-an apple and the tail variable changes to 2, allowing 2 objects inside the Array Trail
+an apple and the tail variable changes to 2, allowing 2 objects inside the Trail Array
 
 Game starts with the starting positions px and py equal to 12 (approximately in the middle of the board); initial speed vx = 0 and vy = - 1; and the snake starts 
 with just 1 square in length, determined by the variable tail = 1
@@ -367,7 +367,7 @@ if (trail[i].x == px && trail[i].y == py && tail != 1) {
 
 - User wins if the snake occupies the entire screen
 ```
-if (i == 624) {
+if (trail.length == 625) {
   win()
 }
 ```
