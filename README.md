@@ -288,7 +288,7 @@ document.getElementById("score").innerHTML = finalScore
 
 - Instructions Screen
 ```
-//The functions to enter and exit the Instructions Screen by clicking at the button on Menu Screen
+// The functions to enter and exit the Instructions Screen by clicking at the button on Menu Screen
 
 function showInstructions() {
  document.getElementById('instructions-board').style.display = 'flex'
@@ -357,14 +357,14 @@ function pause() {
 After Game Over player can decide either Restart the game or go Back to the Menu Screen
 
 ```
-//The function calls the start() function of the game again and removes the Game Over Screen
+// The function calls the start() function of the game again and removes the Game Over Screen
 function reset() {
  document.getElementById('gameover').style.display = 'none';
 
  start()
 }
 
-//The function simply reloads the page
+// The function simply reloads the page
 function menu() {
  window.location.reload()
 }
