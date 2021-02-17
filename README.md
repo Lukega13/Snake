@@ -110,6 +110,7 @@ When player "eats" an apple another one is randomically generated again
 <br />
 
 **4. Start Positions**
+
 Snake starts at the middle of the board (1), with a speed of 90ms per square (2) and heading north (3)
 
 The initial size of the snake is 1 square (4) 
