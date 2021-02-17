@@ -145,9 +145,6 @@ The score is showed in real time at the game by the variables score and finalSco
 ## ☁️ Installation
 Try changing the software variables yourself, and modify the game rules as you wish
 
-<br/>
-
-Downloading...
 ```
 $ git clone https://github.com/Lukega13/Snake.git
 ```
