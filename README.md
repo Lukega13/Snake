@@ -13,7 +13,7 @@
 <img alt="Version v1.0" src="https://img.shields.io/static/v1?label=license&message=MIT&color=rgb(31,54,125)&style=flat&logo=none">
 </a>
 
-<a href="www.linkedin.com/in/luke-guimaraes">
+<a href="http://www.linkedin.com/in/luke-guimaraes">
 <img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white">
 </a>
 </p>
