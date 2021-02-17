@@ -22,11 +22,6 @@
 </a>
 </p>
 
-## 🛠 Technologies
-- [JavaScript](https://www.javascript.com/)
-
-<br/>
-
 ## 📜 Rules and Features
 - [X] The snake is controlled by the arrow keys
 - [X] Player can pause the game pressing the "P" key
@@ -39,6 +34,11 @@
 - [X] If the snake dies the game is ended
 - [X] The final score is based on the number of apples eaten by the snake: for each apple eated you win 10 points
 - [X] If the snake fills the entire window you win!
+
+<br/>
+
+## 🛠 Technologies
+- [JavaScript](https://www.javascript.com/)
 
 <br/>
 
@@ -155,5 +155,5 @@ $ git clone https://github.com/Lukega13/Snake.git
 <br/>
 
 ## Author
-| [<img src="https://avatars.githubusercontent.com/u/68627544?s=96&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
+| [<img src="https://avatars.githubusercontent.com/u/68627544?s=460&u=eb801d3c7b0c228bf6ee1d02341d24ddf278589f&v=4" width="155"><br><sub>@Lukega13</sub>](https://github.com/Lukega13) |
 | :---: |
