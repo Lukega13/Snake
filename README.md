@@ -22,6 +22,10 @@
 
 <br/>
 
+<p align="center">
+<img height="400px" src="/img/1b450870a9594a4d8c59d8e97ee3c50312_14_33.gif" />
+</p>
+
 ## 📜 Rules and Features
 - [X] The snake is controlled by the arrow keys
 - [X] Player can pause the game pressing the "P" key
